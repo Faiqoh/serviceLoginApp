@@ -2,13 +2,13 @@
   "name": "js-jwt-auth-mongodb",
   "version": "1.0.0",
   "description": "Node.js + MongoDB: JWT Authentication & Authorization",
-  "main": "server.js",
+  "main": "index.js",
   "engines": {
     "node": "14.x"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node index.js"
   },
   "keywords": [
     "node.js",
