@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const dbConfig = require("./app/config/db.config");
 const app = express();
+const run = require("./app/controllers/run.controller");
 
 var corsOptions = {
     origin: "http://localhost:8081"
@@ -12,6 +13,8 @@ app.use(cors(corsOptions));
 app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
+
+app.use("/api/run", run);
 
 const db = require("./app/models");
 const Role = db.role;
@@ -30,10 +33,10 @@ db.mongoose
     process.exit();
   });
 
-// simple route
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to faiqoh application." });
-});
+// // simple route
+// app.get("/", (req, res) => {
+//   res.json({ message: "Welcome mumumu." });
+// });
 
 // routes
 require('./app/routes/auth.routes')(app);
