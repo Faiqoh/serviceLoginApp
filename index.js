@@ -3,6 +3,8 @@ const cors = require("cors");
 const dbConfig = require("./app/config/db.config");
 const app = express();
 const run = require("./app/controllers/run.controller");
+const passwordReset = require("./app/routes/passwordReset");
+const users = require("./app/routes/user.routes");
 
 var corsOptions = {
     origin: "http://localhost:8081"
@@ -33,11 +35,6 @@ db.mongoose
     process.exit();
   });
 
-// // simple route
-// app.get("/", (req, res) => {
-//   res.json({ message: "Welcome mumumu." });
-// });
-
 // routes
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
@@ -47,6 +44,8 @@ const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
+
+app.use("/api/auth/password-reset", passwordReset);
 
 function initial() {
     Role.estimatedDocumentCount((err, count) => {
