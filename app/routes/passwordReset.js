@@ -22,7 +22,7 @@ router.post("/", async (req, res) => {
             }).save();
         }
 
-        const link = 'You requested for a password reset, kindly use this link to reset your password '+`http://localhost:8081/resetPass/${user._id}`;
+        const link = 'You requested for a password reset, kindly use this link to reset your password '+`https://register-app-react-js.vercel.app//resetPass/${user._id}`;
         await sendEmail(user.email, "Password reset", link);
 
         res.send({ message: "Password reset link sent to your email account!" });
