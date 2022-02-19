@@ -6,11 +6,11 @@ const run = require("./app/controllers/run.controller");
 const passwordReset = require("./app/routes/passwordReset");
 const users = require("./app/routes/user.routes");
 
-var corsOptions = {
-    origin: "*"
-};
+// var corsOptions = {
+//     origin: "*"
+// };
 
-app.use(cors(corsOptions));
+app.use(cors());
 // parse requests of content-type - application/json
 app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
