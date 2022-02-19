@@ -7,7 +7,7 @@ const passwordReset = require("./app/routes/passwordReset");
 const users = require("./app/routes/user.routes");
 
 var corsOptions = {
-    origin: "http://localhost:8081"
+    origin: "*"
 };
 
 app.use(cors(corsOptions));
